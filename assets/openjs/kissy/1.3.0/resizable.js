@@ -88,7 +88,9 @@ KISSY.add(function (S, Resizable) {
             //最终需要返回给
             return {
                 Resizable: frameGroup.markFunction(function () {
-                    return new SafeResizable(arguments[0], cajaAFTB.untame(arguments[1]));
+                    var args = S.makeArray(arguments);
+                    var cfg = cajaAFTB.untame(args[0]);
+                    return new SafeResizable(cfg);
                 }),
                 kissy:true
             }
