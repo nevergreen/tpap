@@ -15,8 +15,6 @@ drag.on('dragstart', function(){
 drag.on('drag', function(){
 	console.log('draging...');
 });
-drag.on('dragend', function(e){
+drag.on('dragend', function(){
 	console.log('end drag...');
-	console.log(e);
-	console.log(e.todo);
 });
