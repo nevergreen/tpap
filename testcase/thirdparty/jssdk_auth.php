@@ -1,7 +1,7 @@
 <!--页头公共资源引入-->
 <?php include("../common/head.php");?>
-<!--script src="http://a.tbcdn.cn/apps/top/x/sdk.js?appkey=12262395"></script-->
-<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=12262395"></script>
+
+<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=12262395" charset="utf-8"></script>
 
 
 <!--
