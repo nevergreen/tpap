@@ -20,6 +20,22 @@
     cursor:move;
     text-align:center;
 }
+
+.drop{
+    width: 200px;
+    height: 200px;
+    background-color:#468847;
+    position: relative; 
+}
+.drop .header{
+    width:100%;
+    height:20px;
+    background-color: gray;
+    cursor:default;
+    text-align:center;
+}
+
+
 .wrapper {
 	width:500px;
 	height:500px;
@@ -28,6 +44,9 @@
 </style>
 <div class="J_TScriptedModule" data-componentid="uniqueSign">
   <div class="wrapper">
+    <div class="drop drop1">
+      <div class="header">header</div>
+    </div>
     <div class="drag drag1">
       <div class="header">header</div>
     </div>
