@@ -90,6 +90,7 @@ KISSY.add(function (S, Resizable) {
                 Resizable: frameGroup.markFunction(function () {
                     var args = S.makeArray(arguments);
                     var cfg = cajaAFTB.untame(args[0]);
+					cfg.node = S.all(cfg.node, context.mod);
                     return new SafeResizable(cfg);
                 }),
                 kissy:true
