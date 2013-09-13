@@ -22,6 +22,17 @@ KISSY.add(function (S) {
             this.obj = new AliMap(arguments[0]);
         }
 
+        function filterContent(c) {
+            var filter = c.toLowerCase().replace(/<iframe|<embed|<link|<script|<applet|<object|<style|<base|<frameset/g, '');
+
+            if (filter.length !== c.length) {
+                if (window.goldlog) {
+                    goldlog.emit('caja_safe', c);
+                }
+                return false;
+            }
+            return true;
+        }
 
         var funs = ('centerAndZoom,addOverlay,closeInfoWindow,openInfoWindow,depose,checkResize,clearOverlays,disableDragging,' +
             'draggingEnabled,enableDragging,endAutoSlide,endAutoSlide,getZoom,isDragging,removeOverlay,setZoom,startAutoSlide,zoomIn,zoomOut,'+
@@ -34,6 +45,16 @@ KISSY.add(function (S) {
             this.obj.addOverlay(o.obj);
         };
         SafeAliMap.prototype.openInfoWindow = function () {
+            var p = KISSY.makeArray(arguments);
+            if(KISSY.isString(p[2])){
+                var f = filterContent(p[2])
+                if(f !== p[2]){
+                    if(window.goldlog){
+                        goldlog.emit('caja_safe', p[2]);
+                    }
+                    return;
+                }
+            }
             this.obj.openInfoWindow.apply(this, arguments)
         };
         SafeAliMap.prototype.closeInfoWindow = function () {
@@ -143,6 +164,16 @@ KISSY.add(function (S) {
             this.obj.setTitle(o);
         };
         SafeAliMarker.prototype.openInfoWindow = function (o) {
+            var p = KISSY.makeArray(arguments);
+            if(KISSY.isString(p[1])){
+                var f = filterContent(p[1])
+                if(f !== p[1]){
+                    if(window.goldlog){
+                        goldlog.emit('caja_safe', p[1]);
+                    }
+                    return;
+                }
+            }
             this.obj.openInfoWindow.apply(this, arguments)
         };
         SafeAliMarker.prototype.getIcon = function () {

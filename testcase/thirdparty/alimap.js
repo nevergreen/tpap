@@ -29,6 +29,9 @@ describe('alimap', function () {
        var a = marker.getLatLng();
         console.log(a.lat(), a.lng());
 
+        marker.openInfoWindow("fuck","<iframe src='http://www.taobao.com'>11</iframe>");
+        marker.setTitle("<iframe src='http://www.taobao.com'>11</iframe>");
+
        /*    setInterval(function(){
             map.zoomIn();
         },1000);*/
