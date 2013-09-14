@@ -10,8 +10,9 @@ KISSY.add(function (S, DD, Constrain) {
      * @returns {Function} 工厂获取实际的适配对象
      */
 	function init(frameGroup) {		
-				
-        
+					
+        function tameNode(node){
+        }	
 		
 		//Draggable
         SafeDraggable = function (cfg) {
@@ -41,12 +42,13 @@ KISSY.add(function (S, DD, Constrain) {
           
           this.inner.on(params[0], function(e){         
               var ev = {
+				  tata: tameNode(self.inner.get('node')),
                   todo: "todo..." //由于原方法内是自定义事件对象, 此处暂时未引入.
               };       
               params[1].call(self, frameGroup.tame(ev));
           });
         };		
-		    frameGroup.markCtor(SafeDraggableDelegate);
+		frameGroup.markCtor(SafeDraggableDelegate);
         frameGroup.grantMethod(SafeDraggableDelegate, "on");
 		
 		
@@ -68,7 +70,7 @@ KISSY.add(function (S, DD, Constrain) {
               params[1].call(self, frameGroup.tame(ev));
           });
         };
-		    frameGroup.markCtor(SafeDroppable);
+		frameGroup.markCtor(SafeDroppable);
         frameGroup.grantMethod(SafeDroppable, "on");
 		
   		//DroppableDelegate
@@ -88,15 +90,15 @@ KISSY.add(function (S, DD, Constrain) {
               params[1].call(self, frameGroup.tame(ev));
           });
         };		
-		    frameGroup.markCtor(SafeDroppableDelegate);
+		frameGroup.markCtor(SafeDroppableDelegate);
         frameGroup.grantMethod(SafeDroppableDelegate, "on");
 		
 	  
-		//dd.plugin.Constrain   //TODO  这里未完成
-		SafeConstrain = function(cfg){
+		//dd.plugin.Constrain   //TODO  
+/*		SafeConstrain = function(cfg){
 			this.inner =  new Constrain(cfg)
 		}
-		frameGroup.markCtor(SafeConstrain);	
+		frameGroup.markCtor(SafeConstrain);	*/
 
         /**
          * @param context 上下文
@@ -106,6 +108,9 @@ KISSY.add(function (S, DD, Constrain) {
          */
         return function (context) {			
 			
+			tameNode = function(node){
+				return context.frame.imports.tameNode___( node, true );
+			}
 		
             //最终需要返回给
 			return {
@@ -136,7 +141,7 @@ KISSY.add(function (S, DD, Constrain) {
                     })/*,
 					Constrain : frameGroup.markFunction(function () {
 						var args = S.makeArray(arguments);
-						var cfg = cajaAFTB.untame(args[0]);
+						//var cfg = cajaAFTB.untame(args[0]);
 						var cfg = args[0];
 						if(cfg.constrain) cfg.constrain = DOM.get(cfg.constrain, context.mod);
 						var c =  new SafeConstrain(cfg);
