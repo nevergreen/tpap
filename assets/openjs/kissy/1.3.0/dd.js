@@ -129,7 +129,8 @@ KISSY.add(function (S, DD, Constrain) {
                     }),
                     DraggableDelegate: frameGroup.markFunction(function () {
                         var args = S.makeArray(arguments);
-                        var cfg = cajaAFTB.untame(args[0]);
+						//var cfg = cajaAFTB.untame(args[0]);
+						var cfg = args[0];
 						cfg.container = DOM.get(cfg.container, context.mod);
                         return new SafeDraggableDelegate(cfg);
                     }),
