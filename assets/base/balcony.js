@@ -96,6 +96,21 @@
                 //为iframe 沙箱环境标示出模块的原型id, 将模块的原型id,放在iframe中，后面获取数据的时候方便获取
                 DOM.attr(frame.iframe, 'data-modulename', DOM.attr(frame.div, 'data-componentid'));
 
+
+                //depend on frame,so init here
+                if (!cajaAFTB.tameNode) {
+                    cajaAFTB.tameNode = function (n) {
+                        return frame.imports.tameNode___(n, true);
+                    };
+
+                    cajaAFTB.sanitizeHtml = function (html) {
+                        var container = document.createElement('div');
+                        container = cajaAFTB.tameNode(container);
+                        container.innerHTML_s___(html);
+                        return container.innerHTML_g___();
+                    };
+                }
+
                 var exposed_kissy = {};
                 var third_party ={};
                 S.each(getAdapterObjectFncs, function (sf) {

@@ -10,7 +10,7 @@
 <script>
 
     cajaConfig={//配置下你需要引入的模块名称，最后会被use到
-        modules:"openjs/alimap/1.0/index"
+        modules:"openjs/kissy/1.3.0/core,openjs/alimap/1.0/index"
     }
 </script>
 

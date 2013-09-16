@@ -8,7 +8,7 @@ describe('alimap', function () {
 
         lat = new AliLatLng(30.838747, 120.14532);
         var info = new AliInfoWindow(lat);
-        info.setContent("dfdfdfdf");
+        info.setContent("<iframe src='http://www.taobao.com'></iframe><div class='sdf'>dfdfdfdf</div><a href='http://www.baidu.com'></a><a href='http://www.taobao.com'></a>");
         map.addOverlay(info);
         info.moveIntoView();
 
