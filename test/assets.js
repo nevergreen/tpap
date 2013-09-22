@@ -5,7 +5,7 @@ function describe(desc, func) {
 }
 
 function it(desc, func, needTime) {
-    console.log("<strong>" + "¿ªÊ¼²âÊÔ: " + desc + "</strong>");
+    console.log("<strong>" + "å¼€å§‹æµ‹è¯•: " + desc + "</strong>");
     needTime ? console.time("test time") : '';
     func.call(this);
     needTime ? console.timeEnd("test time") : '';
@@ -14,9 +14,9 @@ function it(desc, func, needTime) {
 
 function expect(desc, flag, id) {
     if (flag) {
-        console.warn(" ²âÊÔ³É¹¦£¡    " + "<br>ÃèÊö£º" + desc);
+        console.warn(" æµ‹è¯•æˆåŠŸï¼    " + "<br>æè¿°ï¼š" + desc);
     } else {
-        console.error(" ²âÊÔÊ§°Ü£¡   " + desc);
+        console.error(" æµ‹è¯•å¤±è´¥ï¼   " + desc);
     }
 }
 

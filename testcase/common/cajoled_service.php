@@ -4,6 +4,7 @@ $filePath = "../../".$_GET['jsurl'];
 $myFile = fopen($filePath,"r");
 $myFileContent = fread($myFile,filesize($filePath));
 
+$myFileContent = iconv('UTF-8','gb2312', $myFileContent);
 
 function _xpost($url, $p)
 {
@@ -31,7 +32,7 @@ function _xpost($url, $p)
 
 $x = _xpost("http://zxn.taobao.com/tbcajaService.htm",
     array('token' => 'TAE-SDK',
-          'content' => urlencode($myFileContent),
+          'content' =>urlencode($myFileContent),
           'component' => 'uniqueSign'));
 
 $start = strpos($x, "TShop");
@@ -43,6 +44,8 @@ $x = str_replace('&#39;',"'",$x);
 $x = str_replace('&quot;','"',$x);
 $x = str_replace('&amp;','&',$x);
 $x = str_replace("\\\\\"", "\\\"",$x);
+
+
 
 
 

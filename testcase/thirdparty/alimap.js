@@ -1,5 +1,9 @@
 describe('alimap', function () {
 
+    var d = document.createElement('div');
+    d.innerHTML = "<a href='http://www.taobao.com' target='_blank'>aaaa</a>"
+    console.log(d.innerHTML);
+
     it("alimap init", function () {
         var map = AliMap("#mapDiv");
         var lat = new AliLatLng(30.238747, 120.14532);
@@ -8,7 +12,9 @@ describe('alimap', function () {
 
         lat = new AliLatLng(30.838747, 120.14532);
         var info = new AliInfoWindow(lat);
-        info.setContent("<iframe src='http://www.taobao.com'></iframe><div class='sdf'>dfdfdfdf</div><a href='http://www.baidu.com'></a><a href='http://www.taobao.com'></a>");
+        info.setContent("<iframe src='http://www.taobao.com'></iframe><div class='sdf'>dfdfdfdf</div><a href='http://www.taobao.com' target='_self'>111111</a><a href='http://www.taobao.com'></a>");
+
+
         map.addOverlay(info);
         info.moveIntoView();
 
