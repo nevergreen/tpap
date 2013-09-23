@@ -10,24 +10,13 @@ KISSY.add(function (S, Resizable) {
      */
 	function init(frameGroup) {		
 		
-		/**
-         * [tameNode 占位用]
-         *
-         * @param  {[type]} node [description]
-         *
-         * @return {[type]}      [description]
-         */
-        function tameNode(node){
-
-        }
-
 
         /**
         * 因为KISSY的组件构造函数只有一个，后面可能会对构造函数本身做修改
         * 所以这里可以写一个SafeConstruector，相当于继承KISSY的组件，并且显示的声明要开放哪些api
         */
         function SafeResizable(config) {
-		  config.prefixCls = config.prefixCls || "sx-"; // 淘宝默认的前缀为ks- ,ISV不能定义ks-开头的样式, 所以这里默认前缀更改一下.
+		  config.prefixCls = config.prefixCls || "rs-"; // 淘宝默认的前缀为ks- ,ISV不能定义ks-开头的样式, 所以这里默认前缀更改一下.
           this.inner = new Resizable(config);
         }
 
@@ -38,7 +27,7 @@ KISSY.add(function (S, Resizable) {
           
           this.inner.on(params[0], function(e){         
         	  var event = {
-        		  target: tameNode(self.inner.get('node'))
+        		  target: cajaAFTB.tameNode(self.inner.get('node'))
         	  };       
         	  params[1].call(self, frameGroup.tame(event));
           });
@@ -53,15 +42,6 @@ KISSY.add(function (S, Resizable) {
           this.inner.destroy();
         };
 
-        /**
-         * [target 新增一个方法返回当前缩放对象]
-         *
-         * @return {[type]} [description]
-         */
-        SafeResizable.prototype.target = function () {
-          var node = tameNode(this.inner.get('node'));
-          return node;
-        };
 
         //---- 组件是一个构造函数进行初始化的，需要markCtor标记一下，让caja容器认识
         frameGroup.markCtor(SafeResizable);
@@ -69,7 +49,6 @@ KISSY.add(function (S, Resizable) {
         //构造函数实例的方法，需要grantMethod ，加入白名单，没有加入白名单的不可以使用，caja容器不认识
         frameGroup.grantMethod(SafeResizable, "destroy");
         frameGroup.grantMethod(SafeResizable, "on");
-        frameGroup.grantMethod(SafeResizable, "target");
 		  
 
         /**
@@ -79,10 +58,6 @@ KISSY.add(function (S, Resizable) {
          * @return {Object} 实际的组件对象
          */
         return function (context) {
-			
-			tameNode = function(node){
-				return context.frame.imports.tameNode___( node, true );
-			}
 			
 
             //最终需要返回给

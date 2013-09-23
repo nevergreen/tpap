@@ -26,44 +26,44 @@
   font-size: 12px;
   cursor: pointer;
 }
-.box .sx-resizable-handler {
+.box .rs-resizable-handler {
   position: absolute;
   overflow: hidden;
   font-size: 0;
   line-height: 0;
   z-index: 1;
 }
-.box .sx-resizable-handler-t, .box .sx-resizable-handler-b, .box .sx-resizable-handler-r, .box .sx-resizable-handler-l {
+.box .rs-resizable-handler-t, .box .rs-resizable-handler-b, .box .rs-resizable-handler-r, .box .rs-resizable-handler-l {
   opacity: 0.6;
   filter: alpha(opacity=60);
   background-color: #F19EC2;
 }
-.box .sx-resizable-handler-t, .box .sx-resizable-handler-b {
+.box .rs-resizable-handler-t, .box .rs-resizable-handler-b {
   left: 0;
   height: 3px;
   width: 100%;
   cursor: n-resize;
 }
-.box .sx-resizable-handler-b {
+.box .rs-resizable-handler-b {
   bottom: 0;
 }
-.box .sx-resizable-handler-t {
+.box .rs-resizable-handler-t {
   top: 0;
 }
-.box .sx-resizable-handler-r, .box .sx-resizable-handler-l {
+.box .rs-resizable-handler-r, .box .rs-resizable-handler-l {
   top: 0;
   height: 100%;
   _height: expression(this.parentNode.offsetHeight);
   width: 3px;
   cursor: e-resize;
 }
-.box .sx-resizable-handler-l {
+.box .rs-resizable-handler-l {
   left: 0;
 }
-.box .sx-resizable-handler-r {
+.box .rs-resizable-handler-r {
   right: 0;
 }
-.box .sx-resizable-handler-bl, .box .sx-resizable-handler-br, .box .sx-resizable-handler-tl, .box .sx-resizable-handler-tr {
+.box .rs-resizable-handler-bl, .box .rs-resizable-handler-br, .box .rs-resizable-handler-tl, .box .rs-resizable-handler-tr {
   position: absolute;
   width: 3px;
   height: 3px;
@@ -71,22 +71,22 @@
   background-color: #E4007F;
   z-index: 2;
 }
-.box .sx-resizable-handler-bl {
+.box .rs-resizable-handler-bl {
   left: -3px;
   bottom: -3px;
   cursor: sw-resize;
 }
-.box .sx-resizable-handler-br {
+.box .rs-resizable-handler-br {
   right: -3px;
   bottom: -3px;
   cursor: nw-resize;
 }
-.box .sx-resizable-handler-tl {
+.box .rs-resizable-handler-tl {
   left: -3px;
   top: -3px;
   cursor: nw-resize;
 }
-.box .sx-resizable-handler-tr {
+.box .rs-resizable-handler-tr {
   right: -3px;
   top: -3px;
   cursor: sw-resize;
