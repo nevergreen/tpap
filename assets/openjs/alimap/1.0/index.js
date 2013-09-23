@@ -17,11 +17,9 @@ KISSY.add(function (S) {
      */
     function init(frameGroup) {
 
-
         function SafeAliMap() {
             this.obj = new AliMap(arguments[0]);
         }
-
 
         var funs = ('centerAndZoom,addOverlay,closeInfoWindow,openInfoWindow,depose,checkResize,clearOverlays,disableDragging,' +
             'draggingEnabled,enableDragging,endAutoSlide,endAutoSlide,getZoom,isDragging,removeOverlay,setZoom,startAutoSlide,zoomIn,zoomOut,'+
@@ -34,7 +32,9 @@ KISSY.add(function (S) {
             this.obj.addOverlay(o.obj);
         };
         SafeAliMap.prototype.openInfoWindow = function () {
-            this.obj.openInfoWindow.apply(this, arguments)
+            var p = KISSY.makeArray(arguments);
+            p[2] = cajaAFTB.sanitizeHtml(p[2]);
+            this.obj.openInfoWindow.apply(this, p)
         };
         SafeAliMap.prototype.closeInfoWindow = function () {
             this.obj.closeInfoWindow();
@@ -143,7 +143,9 @@ KISSY.add(function (S) {
             this.obj.setTitle(o);
         };
         SafeAliMarker.prototype.openInfoWindow = function (o) {
-            this.obj.openInfoWindow.apply(this, arguments)
+            var p = KISSY.makeArray(arguments);
+            p[1] = cajaAFTB.sanitizeHtml(p[1]);
+            this.obj.openInfoWindow.apply(this, p)
         };
         SafeAliMarker.prototype.getIcon = function () {
             this.obj.getIcon()
@@ -180,7 +182,8 @@ KISSY.add(function (S) {
             this.obj.moveIntoView();
         };
         SafeAliInfoWindow.prototype.setContent = function () {
-            return this.obj.setContent(arguments[0], arguments[1]);
+            return this.obj.setContent(cajaAFTB.sanitizeHtml(arguments[0]), arguments[1]);
+
         };
         SafeAliInfoWindow.prototype.setLatLng = function () {
             return this.obj.setLatLng(arguments[0].la, arguments[0].lo);
