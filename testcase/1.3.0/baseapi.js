@@ -1,5 +1,8 @@
+var div = document.createElement("div");
 
-KISSY.DOM.get('.t1').style.color = "red";
+div.innerHTML = "<a href='http://www.taobao.com'>ffffffffff</a>";
+console.log(div.innerHTML)
+KISSY.DOM.get('.t1').appendChild(div);
 
 describe('对象基本方法和字符串测试', function () {
 
