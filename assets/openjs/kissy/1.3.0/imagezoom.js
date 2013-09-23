@@ -67,10 +67,12 @@ KISSY.add(function (S, ImageZoom) {
 					var config = arguments[0];
 					config={
 						//判断主要用于ISV可以使用selector 或 KISSY.all('.myimg')  来设置放大效果
-						imageNode: typeof(config.imageNode)=='string' ? DOM.get(config.imageNode,context.mod) : config.imageNode.inner[0],
+						//imageNode: typeof(config.imageNode)=='string' ? DOM.get(config.imageNode,context.mod) : config.imageNode.inner[0],
+						imageNode: DOM.get(config.imageNode,context.mod),
 						//对齐
 						align:config.align!=null ? {
-								node:typeof(config.align.node)=='string' ? DOM.get(config.align.node,context.mod) : config.align.node.inner[0],
+								//node:typeof(config.align.node)=='string' ? DOM.get(config.align.node,context.mod) : config.align.node.inner[0],
+								node:DOM.get(config.align.node,context.mod),
 								points:config.align.points,
 								offset:config.align.offset
 							} : null,
