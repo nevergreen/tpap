@@ -103,6 +103,10 @@
                         return frame.imports.tameNode___(n, true);
                     };
 
+                    cajaAFTB.checkCss = function(s,n,v){
+                        return frame.imports.checkCss___(s,n,v);
+                    };
+
                     cajaAFTB.sanitizeHtml = function (html) {
                         var container = document.createElement('div');
                         container = cajaAFTB.tameNode(container);

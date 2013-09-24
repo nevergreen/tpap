@@ -134,6 +134,15 @@
      */
     cajaAFTB.sanitizeHtml = null;
 
+    /**
+     * checkCss
+     * @param HTMLElement/Selector
+     * @parem stylePropertyName
+     * @param styleProperty value
+     * @return true/errormessage
+     */
+    cajaAFTB.checkCss = null;
+
     window.cajaAFTB = cajaAFTB;
 
 })(caja, KISSY);
