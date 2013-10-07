@@ -16,7 +16,7 @@ function _xpost($url, $p)
     }
 
     $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 1);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($curl, CURLOPT_POST, 1);

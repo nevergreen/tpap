@@ -7,12 +7,21 @@
 
     var S = KISSY,
         version = "r4000",
-        HOST_PATH = location && (location.search || '').indexOf('caja-debug') !== -1 ? "http://assets.daily.taobao.net/apps/taesite/balcony/core/" : "http://a.tbcdn.cn/apps/taesite/balcony/core/";
+        HOST_PATH = location && (location.search || '').indexOf('caja-debug') !== -1 ?
+            "http://assets.daily.taobao.net/apps/taesite/balcony/core/" :
+            "http://a.tbcdn.cn/apps/taesite/balcony/core/";
+
 
     /**
      * @constant Server hosts the caja service
      */
     var CAJA_SERVER = HOST_PATH + version + "/caja/";
+
+    if (location.href.indexOf('__dev__') != -1) {
+        HOST_PATH = '../../../caja/ant-lib/com/google/caja/plugin/';
+        version = "";
+        CAJA_SERVER = HOST_PATH;
+    }
 
     /**
      * @constant Identifier which indicates the module is scripted module
@@ -61,7 +70,7 @@
      * @param {Object} frameGroup frameGroup in caja environment
      * @param {Object} 所有的组件adapter 构造器
      */
-    Balcony.runScriptedMods = function (frameGroup, adapterArray) {
+    Balcony.runScriptedMods = function (frameGroup, adapterArray, callback) {
         var DOM = KISSY.DOM;
         var scriptedMods = DOM.query("." + SCRIPTED_MODS_IDENTIFIER);
         if (!scriptedMods) {
@@ -75,6 +84,7 @@
 
         var extraExposed = S.isFunction(window.getCajaExposed) ? window.getCajaExposed(frameGroup, cajaAFTB) : {};
 
+        var total = scriptedMods.length, index = 0;
         S.each(scriptedMods, function (scriptedMod) {
             var prototypeId = DOM.attr(scriptedMod, "data-componentid");
             // no prototypeId
@@ -103,8 +113,8 @@
                         return frame.imports.tameNode___(n, true);
                     };
 
-                    cajaAFTB.checkCss = function(s,n,v){
-                        return frame.imports.checkCss___(s,n,v);
+                    cajaAFTB.checkCss = function (s, n, v) {
+                        return frame.imports.checkCss___(s, n, v);
                     };
 
                     cajaAFTB.sanitizeHtml = function (html) {
@@ -116,17 +126,17 @@
                 }
 
                 var exposed_kissy = {};
-                var third_party ={};
+                var third_party = {};
                 S.each(getAdapterObjectFncs, function (sf) {
-                    var obj =sf({
+                    var obj = sf({
                         frame: frame,
                         mod: scriptedMod
                     });
-                    if(true === obj.kissy){
+                    if (true === obj.kissy) {
                         S.mix(exposed_kissy, obj);
                         obj.kissy = undefined;
-                    }else{
-                        S.mix(third_party,obj);
+                    } else {
+                        S.mix(third_party, obj);
                     }
                 });
 
@@ -142,6 +152,10 @@
 
 
                 prepareEnv.run(coreObj, function (re, a) {
+                    index++;
+                    if (callback && index == total) {
+                        callback();
+                    }
                 });
                 //发送监控日志-js执行时间
                 //shop_log.sendJsMonitor(1, "设计师模块js被编译后的执行时间", prototypeId, +new Date() - start_time);
@@ -153,12 +167,12 @@
     /**
      * Set up the balcony environment for scripted modules
      */
-    Balcony.setup = function (adapterArray) {
+    Balcony.setup = function (adapterArray, callback) {
         caja.configure({
             cajaServer: CAJA_SERVER,
             debug: location && (location.search || '').indexOf('caja-debug') !== -1
         }, function (frameGroup) {
-            Balcony.runScriptedMods(frameGroup, adapterArray);
+            Balcony.runScriptedMods(frameGroup, adapterArray, callback);
         });
     };
 

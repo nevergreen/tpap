@@ -8,17 +8,17 @@ for caja, a third parth adapter.
     tpap 是基于开放JS的一个适配器，让第三方可以在开放JS中安全的使用KISSY相关特性。是kissy的一个第三方安全策略方案。
     目前项目中也有关于第三方适配的代码(阿里云和jssdk)
 
-
 目前tpap和开放JS应用于淘宝的旺铺模板开发，淘宝U站，品牌中心，聚石塔等业务
+
 
 #### 一些知识
 https://github.com/lorrylockie/tpap/issues
 
 
-
 #### 有问题
 
 欢迎[提issue](https://github.com/lorrylockie/caja/issues/new)， 我会第一时间回复
+
 
 #### WIKI
 
@@ -43,5 +43,6 @@ utf8 编码
 
 
 #### 代码运行
-* 将项目目录，放到php 服务器中，访问index.php
+* clone https://github.com/lorrylockie/caja.git 到本项目同级目录，并构建
+* 将项目目录，放到php 服务器中，访问 index.php 测试适配代码或 index.php?__dev__ 测试 caja. 
 * 编写完适配代码，`grunt`, 项目打包
