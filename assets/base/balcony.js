@@ -170,7 +170,7 @@
     Balcony.setup = function (adapterArray, callback) {
         caja.configure({
             cajaServer: CAJA_SERVER,
-            debug: location && (location.search || '').indexOf('caja-debug') !== -1
+            debug: location && (location.search || '').indexOf('caja-debug') !== -1 || location.href.indexOf('__dev__')!=-1
         }, function (frameGroup) {
             Balcony.runScriptedMods(frameGroup, adapterArray, callback);
         });

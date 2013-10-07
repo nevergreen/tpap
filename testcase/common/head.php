@@ -15,6 +15,6 @@
 <link rel="stylesheet" href="../../test/jasmine/jasmine.css"/>
 <script src="../../test/jasmine/jasmine.js"></script>
 <script src="../../test/jasmine/jasmine-html.js"></script>
-<script src="../../test/assets.js"></script>
+<script src="../../test/jasmine-adapter.js"></script>
 </head>
 <body>
