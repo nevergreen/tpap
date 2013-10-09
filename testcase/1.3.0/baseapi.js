@@ -1,10 +1,6 @@
 var div = document.createElement("div");
 
-div.style.boxShadow = "none";
-KISSY.DOM.css('.t1','color','red');
-KISSY.DOM.css('.t1','color','#CCC');
-KISSY.DOM.css('.t1','filter','A');
-KISSY.DOM.css('.t1','fuck','A');
+div.innerHTML = "<div data-id='fff'>df</div>"
 
 describe('对象基本方法和字符串测试', function () {
 
@@ -389,6 +385,10 @@ describe('基本的语言测试', function () {
 
         expect('KISSY.all appendTo/parent/children/item 将当前节点列表中的每个元素插入到容器列表的每个元素的最后一个子节点后面.',
             S.all('.dom-child1').appendTo(S.all('.dom-father')).parent().children().item(0).hasClass("dom-child2"), 1);
+
+        expect('KISSY.all insertBefore 字符串直接作为参数', S.all('.dom-child1').clone(true).insertBefore('.inner'), 1);
+
+        expect('KISSY.all appendTo字符串作为输入', S.all('.dom-child1').clone(true).appendTo('.dom-father'), 1);
 
         expect('KISSY.all prependTo 将当前节点列表中的每个元素插入到容器列表的每个元素的开头.', S.all('.dom-child1').prependTo(S.all('.dom-father')).parent().children().item(0).hasClass("dom-child1"), 1);
 

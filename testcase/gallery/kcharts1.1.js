@@ -18,7 +18,7 @@ var linechart = KISSY.KCharts.LineChart({
     },
     series:[
         {
-            data:[100,4000,200,400,144,234,700]
+            data:[10110,4000,200,400,144,234,700]
         }],
     tip:{
         template:"总支出：模板:Y 元"

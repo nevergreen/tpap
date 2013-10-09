@@ -286,7 +286,10 @@ KISSY.add(function (S, Calendar) {
              */
             S.each(('appendTo prependTo insertBefore insertAfter').split(' '), function (fn) {
                 SafeNodeList.prototype[fn] = function (sel) {
-                    this.inner[fn](query(sel.inner));
+                    if(sel.inner){
+                       sel = sel.inner;
+                    }
+                    this.inner[fn](query(sel));
                     return this;
                 };
             });
