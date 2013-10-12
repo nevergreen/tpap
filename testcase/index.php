@@ -11,6 +11,7 @@
     <li><a href="./1.3.0/dom-css.php">dom-css 测试</a></li>
     <li><a href="./1.3.0/calendar.php">日历</a></li>
     <li><a href="./1.3.0/resizable.php">resizeable</a></li>
+    <li><a href="./gallery/datalazyload1.0.php">datalazyload</a></li>
     <li><a href="./gallery/kscroll1.2.php">kscroll</a></li>
     <li><a href="./1.3.0/imagezoom.php">放大镜imagezoom</a></li>
     <li><a href="./gallery/kcharts1.1.php">kcharts</a></li>
