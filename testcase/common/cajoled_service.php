@@ -43,6 +43,8 @@ header('Content-Type:application/javascript;charset=gb2312');
 $x = str_replace('&#39;',"'",$x);
 $x = str_replace('&quot;','"',$x);
 $x = str_replace('&amp;','&',$x);
+$x = str_replace('&gt;','>',$x);    // added by nevergreen
+$x = str_replace('&lt;','<',$x);    // added by nevergreen
 $x = str_replace("\\\\\"", "\\\"",$x);
 
 
