@@ -51,14 +51,14 @@ utf8 编码
 4. 编写完适配代码，`grunt`, 项目打包
 
 ### 贡献者
-@lorrylockie
-[@xudafeng](https://github.com/xudafeng)
-[liangjiao](https://github.com/liangjiao)
-[cangeh](https://github.com/cangeh)
-[xcation](https://github.com/xcation)
-[yiminghe](https://github.com/yiminghe)
-[ecafe8](https://github.com/ecafe8)
-[maq128](https://github.com/maq128)
-[mecle](https://github.com/mecle)
-[bailusheng](https://github.com/bailusheng)
-[hkhj326](https://github.com/hkhj326)
+* @lorrylockie
+* [@xudafeng](https://github.com/xudafeng)
+* [liangjiao](https://github.com/liangjiao)
+* [cangeh](https://github.com/cangeh)
+* [xcation](https://github.com/xcation)
+* [yiminghe](https://github.com/yiminghe)
+* [ecafe8](https://github.com/ecafe8)
+* [maq128](https://github.com/maq128)
+* [mecle](https://github.com/mecle)
+* [bailusheng](https://github.com/bailusheng)
+* [hkhj326](https://github.com/hkhj326)
