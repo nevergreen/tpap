@@ -1,28 +1,26 @@
-tpap
+tpap(Third Party access policy)
 ==========
 
-for caja, a third parth adapter.
+## 简介
 
-    caja 是google开发的安全技术框架 https://code.google.com/p/google-caja/
-    开放JS 是基于caja的修改版，更适合公司的应用。 框架 https://github.com/lorrylockie/caja
-    tpap 是基于开放JS的一个适配器，让第三方可以在开放JS中安全的使用KISSY相关特性。是kissy的一个第三方安全策略方案。
-    目前项目中也有关于第三方适配的代码(阿里云和jssdk)
+第三方安全接入策略是一套前端安全体系的技术方案, 主要为第三方安全接入提供更加便利的支持。
+其中HTML&CSS采用服务端的TBMLFILTER过滤引擎, JavaScript安全采用[t-caja](https://github.com/lorrylockie/t-caja)
 
-目前tpap和开放JS应用于淘宝的旺铺模板开发，淘宝U站，品牌中心，聚石塔等业务
+t-caja本身提供了基础JavaScript语言层面的API, 虽然保证了应用的安全, 但对于开发复杂的应用, 缺少功能和ui组件的支持是很困难的，此工程的目的就是让第三方开发者可以基于t-caja使用KISSY相关特性
+同时目前项目中也有关于第三方安全库适配的代码(阿里云和jssdk)
 
-
-#### 一些知识
-https://github.com/lorrylockie/tpap/issues
+目前tpap和t-caja工程应用于淘宝的旺铺模板开发，淘宝U站，品牌中心，聚石塔等淘宝核心开放业务平台
 
 
-#### 有问题
+## 如何贡献
 
-欢迎[提issue](https://github.com/lorrylockie/caja/issues/new)， 我会第一时间回复
-
+[如何进行安全组件的适配](https://github.com/lorrylockie/tpap/wiki/如何进行前端安全组件的适配工作)
 
 #### WIKI
-
 也欢迎你贡献 [wiki](https://github.com/lorrylockie/tpap/wiki)
+
+#### 有问题
+欢迎[提issue](https://github.com/lorrylockie/caja/issues/new)， 我会第一时间回复
 
 
 #### 目录结构说明
@@ -43,6 +41,9 @@ utf8 编码
 
 
 #### 代码运行
-* clone https://github.com/lorrylockie/caja.git 到本项目同级目录，并构建
-* 将项目目录，放到php 服务器中，访问 index.php 测试适配代码或 index.php?__dev__ 测试 caja. 
-* 编写完适配代码，`grunt`, 项目打包
+##### 适配
+1. `clone https://github.com/lorrylockie/t-caja.git caja` 到本工程同级目录
+2. 将caja和当前项目目录，放到php 服务器中，访问 index.php访问项目首页
+3. 按照流程编写完测试用例后，直接访问测试的php文件。在运行测试代码的url上加上__dev__参数可以测试caja，如果不测试caja可以省略第一个步骤.
+4. 编写完适配代码，`grunt`, 项目打包
+

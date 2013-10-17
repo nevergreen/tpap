@@ -72,8 +72,10 @@ KISSY.add(function(S, Kscroll) {
                 Kscroll: frameGroup.markFunction(function() {
                     var args = S.makeArray(arguments);
                     var el = cajaAFTB.untame(args[0]);
+                    var cfg = cajaAFTB.untame(arguments[1]);
+                    cfg.prefix = (cfg.prefix == null ? 'kscroll-' : cfg.prefix);
                     el = DOM.get(el, context.mod);
-                    return new SafeKscroll(el, cajaAFTB.untame(arguments[1]));
+                    return new SafeKscroll(el, cfg);
                 }),
                 kissy: true
             }

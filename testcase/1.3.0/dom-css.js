@@ -71,8 +71,12 @@ describe('css test', function () {
            div.style.overflow = 'scroll';
            expect(div.style.overflow).toBe('scroll');
 
-
+            //bughere set and get not the same value
+           div.style.backgroundImage = 'url("http://www.taobao.com/1.jpg")';
+           expect(div.style.backgroundImage).toBe('url(http://www.taobao.com/1.jpg)');
        });
+
+
 
        it('support filter in ie', function(){
            if(KISSY.UA.ie ){
